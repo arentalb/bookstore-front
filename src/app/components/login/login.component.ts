@@ -26,7 +26,13 @@ export class LoginComponent {
       .subscribe(
         (response: any) => {
           this.authService.login(response.data);
-          this.router.navigate(['/home']);
+          if (response.data.isAdmin) {
+            console.log('adminnnn');
+            this.router.navigate(['/admin']);
+          } else {
+            console.log('userrr');
+            this.router.navigate(['/home']);
+          }
           this.toastr.success('Login success');
         },
         (error: any) => {
