@@ -13,13 +13,14 @@ import { HeaderComponent } from './components/common/header/header.component';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HomeComponent } from './components/user/home/home.component';
 import { BookListComponent } from './components/admin/books/book-list/book-list.component';
 import { BookFormComponent } from './components/admin/books/book-form/book-form.component';
 import { AuthInterceptor } from './interceptures/auth.interceptor';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { StudentFormComponent } from './components/admin/student/student-form/student-form.component';
 import { StudentListComponent } from './components/admin/student/student-list/student-list.component';
+import { BooksComponent } from './components/user/books/books.component';
+import { BookDetailComponent } from './components/user/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +29,13 @@ import { StudentListComponent } from './components/admin/student/student-list/st
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
     BookListComponent,
     BookFormComponent,
     DashboardComponent,
     StudentFormComponent,
     StudentListComponent,
+    BooksComponent,
+    BookDetailComponent,
   ],
   imports: [
     BrowserModule,

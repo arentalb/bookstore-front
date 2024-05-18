@@ -27,11 +27,9 @@ export class LoginComponent {
         (response: any) => {
           this.authService.login(response.data);
           if (response.data.isAdmin) {
-            console.log('adminnnn');
             this.router.navigate(['/admin']);
           } else {
-            console.log('userrr');
-            this.router.navigate(['/home']);
+            this.router.navigate(['/books']);
           }
           this.toaster.success('Login success');
         },

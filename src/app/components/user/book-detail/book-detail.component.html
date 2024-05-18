@@ -1,0 +1,48 @@
+<div class="container mx-auto p-4 rounded-lg shadow-md relative overflow-hidden">
+  <div
+    [ngClass]="{
+    'bg-red-500': !isAvailable,
+    'bg-green-500': isAvailable
+  }"
+    class="absolute top-24 -right-8 font-bold min-w-60 shadow-md text-white py-1 px-3 transform translate-y-10 rotate-45 origin-top-right flex justify-center">
+    {{ isAvailable ? 'Available' : 'Not Available' }}
+  </div>
+
+  <ng-container *ngIf="isLoading; else content">
+    <div class="flex justify-center items-center">
+      <span class="loading loading-dots loading-lg"></span>
+    </div>
+  </ng-container>
+
+  <ng-template #content>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="col-span-1">
+        <ng-container *ngIf="book.image; else noImage">
+          <div class="image-container h-64 md:h-auto overflow-hidden rounded-lg shadow-lg">
+            <img [src]="book.image" alt="Book Cover" class="w-full h-full object-cover">
+          </div>
+        </ng-container>
+        <ng-template #noImage>
+          <div class="no-image h-64 flex items-center justify-center bg-gray-200 rounded-lg">
+            <span class="text-gray-500">No Image Available</span>
+          </div>
+        </ng-template>
+      </div>
+
+      <div class="col-span-2 p-4 text-lg  text-gray-700">
+        <div class="mb-24">
+          <h1 class="title text-4xl font-bold text-gray-800 mb-8">{{ book.title }}</h1>
+          <p>Author: <span class="text-gray-600">{{ book.author }}</span></p>
+          <p>Publisher: <span class="text-gray-600">{{ book.publisher }}</span></p>
+          <p>Language: <span class="text-gray-600">{{ book.language }}</span></p>
+          <p>Category: <span class="text-gray-600 ">{{ book.category }}</span></p>
+          <h2 class="text-2xl font-semibold text-gray-700 mt-4 mb-2">Description</h2>
+          <p class="text-gray-600 text-base">{{ book.description }}</p>
+        </div>
+        <button [disabled]="!isAvailable" class="btn btn-neutral btn-wide">
+          Reserve
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>
