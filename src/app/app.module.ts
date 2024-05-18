@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { HomeComponent } from './components/user/home/home.component';
+import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HomeComponent } from './components/user/home/home.component';
     FooterComponent,
     AdminDashboardComponent,
     HomeComponent,
+    AdminBooksComponent,
   ],
   imports: [
     BrowserModule,
