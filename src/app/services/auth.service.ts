@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private cookieService: CookieService,
+  ) {}
 
   login(user: any): boolean {
     // Implement your authentication logic here
     localStorage.setItem('userInfo', JSON.stringify(user));
+    this.cookieService.set('jwt', 'Hello World');
     this.router.navigate(['/home']);
     return true;
   }

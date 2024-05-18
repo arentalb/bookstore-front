@@ -16,7 +16,7 @@ export class LoginComponent {
     private http: HttpClient,
     private router: Router,
     private authService: AuthService,
-    private toastr: ToastrService,
+    private toaster: ToastrService,
   ) {}
 
   onSubmit() {
@@ -33,12 +33,11 @@ export class LoginComponent {
             console.log('userrr');
             this.router.navigate(['/home']);
           }
-          this.toastr.success('Login success');
+          this.toaster.success('Login success');
         },
         (error: any) => {
           console.log(error?.error.message);
-          this.toastr.error(error?.error.message);
-
+          this.toaster.error(error?.error.message);
           // alert('Login failed. Please check your credentials.');
         },
       );

@@ -6,7 +6,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminGuard } from './guards/admin.guard';
 import { HomeComponent } from './components/user/home/home.component';
-import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
+import { BookFormComponent } from './components/admin/books/book-form/book-form.component';
+import { BookListComponent } from './components/admin/books/book-list/book-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,7 +27,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: AdminDashboardComponent },
-      { path: 'books', component: AdminBooksComponent },
+      { path: 'books', component: BookListComponent },
+      { path: 'book/new', component: BookFormComponent },
+      { path: 'book/edit/:id', component: BookFormComponent },
     ],
   },
   { path: '**', redirectTo: 'login' },

@@ -1,0 +1,98 @@
+<div class=" w-full p-4">
+  <h1 class="text-3xl font-bold">{{ isEditMode ? 'Edit Book' : 'Create New Book' }}</h1>
+  <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)" class="grid grid-cols-2">
+    <!-- Title -->
+
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Book Title</span>
+      </div>
+      <input [(ngModel)]="book.title" class="input input-bordered w-full max-w-xs" name="title"
+             placeholder="Enter book title" required type="text"/>
+    </label>
+
+
+    <!-- Author -->
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Author</span>
+      </div>
+      <input [(ngModel)]="book.author" class="input input-bordered w-full max-w-xs" name="author"
+             placeholder="Enter author's name" required type="text"/>
+    </label>
+
+    <!-- Publisher -->
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Publisher</span>
+      </div>
+      <input [(ngModel)]="book.publisher" class="input input-bordered w-full max-w-xs" name="publisher"
+             placeholder="Enter publisher's name" required type="text"/>
+    </label>
+
+    <!--image-->
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Choose Book Cover</span>
+      </div>
+      <input (change)="onFileSelect($event)" class="file-input file-input-bordered w-full max-w-xs"
+             name="image" type="file"
+             value="{{selectedFile}}"/>
+
+    </label>
+
+    <!-- Language -->
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Select Book Language</span>
+      </div>
+      <select [(ngModel)]="book.language" class="select select-bordered" name="language" required>
+        <option disabled selected>Select Language</option>
+        <option>English</option>
+        <option>Spanish</option>
+        <option>French</option>
+        <option>German</option>
+        <option>Chinese</option>
+        <option>Japanese</option>
+        <option>Arabic</option>
+        <option>Russian</option>
+        <option>Portuguese</option>
+        <option>Hindi</option>
+      </select>
+    </label>
+
+    <!-- Category -->
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Select Book Category</span>
+      </div>
+      <select [(ngModel)]="book.category" class="select select-bordered" name="category" required>
+        <option disabled selected>Select Category</option>
+        <option>Fantasy</option>
+        <option>Science Fiction</option>
+        <option>Mystery</option>
+        <option>Romance</option>
+        <option>Non-Fiction</option>
+        <option>Historical</option>
+        <option>Thriller</option>
+        <option>Biography</option>
+        <option>Children's</option>
+        <option>Young Adult</option>
+      </select>
+    </label>
+
+    <!-- Description -->
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Book Description</span>
+      </div>
+      <textarea [(ngModel)]="book.description" class="textarea textarea-bordered h-24" name="description"
+                placeholder="Enter book description"></textarea>
+    </label>
+
+    <!-- Submit Button -->
+    <button class="btn btn-success mt-4 max-w-xs" type="submit">{{ isEditMode ? 'Update' : 'Submit' }}</button>
+
+
+  </form>
+</div>
