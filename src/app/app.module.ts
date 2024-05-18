@@ -17,6 +17,8 @@ import { HomeComponent } from './components/user/home/home.component';
 import { BookListComponent } from './components/admin/books/book-list/book-list.component';
 import { BookFormComponent } from './components/admin/books/book-form/book-form.component';
 import { AuthInterceptor } from './interceptures/auth.interceptor';
+import { StudentsComponent } from './components/admin/students/students.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { AuthInterceptor } from './interceptures/auth.interceptor';
     HomeComponent,
     BookListComponent,
     BookFormComponent,
+    StudentsComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

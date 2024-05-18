@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/common/layout/layout.component';
 import { AuthGuard } from './guards/auth.guard';
-import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminGuard } from './guards/admin.guard';
 import { HomeComponent } from './components/user/home/home.component';
 import { BookFormComponent } from './components/admin/books/book-form/book-form.component';
 import { BookListComponent } from './components/admin/books/book-list/book-list.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { StudentsComponent } from './components/admin/students/students.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'students', component: StudentsComponent },
       { path: 'books', component: BookListComponent },
       { path: 'book/new', component: BookFormComponent },
       { path: 'book/edit/:id', component: BookFormComponent },
