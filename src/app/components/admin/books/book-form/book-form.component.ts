@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BookService } from '../../../../services/book.service';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-form',
@@ -24,9 +25,20 @@ export class BookFormComponent implements OnInit {
   constructor(
     private bookService: BookService,
     private toaster: ToastrService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.isEditMode = Boolean(id);
+      this.bookService.getBookById(id).subscribe((response) => {
+        console.log(response);
+        this.book = response?.data;
+      });
+    }
+  }
 
   onFileSelect(event: Event): void {
     const element = event.target as HTMLInputElement;
@@ -40,7 +52,62 @@ export class BookFormComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm): void {
+  onUpdateClick(bookForm: NgForm): void {
+    if (bookForm.valid) {
+      if (this.selectedFile) {
+        const formData = new FormData();
+        formData.append('image', this.selectedFile);
+        this.bookService.addImage(formData).subscribe(
+          (response: any) => {
+            this.book.image = response.data;
+            this.toaster.success('Image uploaded');
+            this.bookService.updateBook(this.book).subscribe(
+              (response: any) => {
+                this.toaster.success('Product updated');
+                this.router.navigate(['/admin/books']);
+              },
+              (error: any) => {
+                console.log('Error:', error);
+                this.toaster.error(error?.error.message);
+              },
+            );
+          },
+          (error: any) => {
+            console.log('Error:', error);
+            this.toaster.error(error?.error.message);
+          },
+        );
+      } else {
+        this.bookService.updateBook(this.book).subscribe(
+          (response: any) => {
+            this.toaster.success('Product updated');
+            this.router.navigate(['/admin/books']);
+          },
+          (error: any) => {
+            console.log('Error:', error);
+            this.toaster.error(error?.error.message);
+          },
+        );
+      }
+    }
+  }
+
+  onDeleteClick(bookForm: NgForm): void {
+    if (confirm('Are you sure you want to delete this book ?')) {
+      this.bookService.deleteBook(this.book).subscribe(
+        (response: any) => {
+          this.toaster.success('Product deleted');
+          this.router.navigate(['/admin/books']);
+        },
+        (error: any) => {
+          console.log('Error:', error);
+          this.toaster.error(error?.error.message);
+        },
+      );
+    }
+  }
+
+  onSubmitClick(form: NgForm): void {
     if (form.valid && this.selectedFile) {
       if (this.selectedFile) {
         const formData = new FormData();

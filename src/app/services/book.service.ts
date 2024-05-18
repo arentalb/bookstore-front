@@ -15,8 +15,8 @@ export class BookService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  getBookById(book: any): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/${book.id}`);
+  getBookById(id: any): Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/${id}`);
   }
 
   addBook(book: any): Observable<any> {
@@ -24,11 +24,11 @@ export class BookService {
   }
 
   updateBook(book: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${book.id}`, book);
+    return this.http.put<any>(`${this.apiUrl}/${book._id}`, book);
   }
 
   deleteBook(book: any): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${book.id}`, book);
+    return this.http.delete<any>(`${this.apiUrl}/${book._id}`);
   }
 
   addImage(image: any): Observable<any> {

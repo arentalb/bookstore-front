@@ -1,8 +1,7 @@
-<div class=" w-full p-4">
+<div class="w-full p-4">
   <h1 class="text-3xl font-bold">{{ isEditMode ? 'Edit Book' : 'Create New Book' }}</h1>
-  <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)" class="grid grid-cols-2">
+  <form #bookForm="ngForm" class="grid grid-cols-2">
     <!-- Title -->
-
     <label class="form-control w-full max-w-xs mt-4">
       <div class="label">
         <span class="label-text">Book Title</span>
@@ -10,7 +9,6 @@
       <input [(ngModel)]="book.title" class="input input-bordered w-full max-w-xs" name="title"
              placeholder="Enter book title" required type="text"/>
     </label>
-
 
     <!-- Author -->
     <label class="form-control w-full max-w-xs mt-4">
@@ -30,15 +28,13 @@
              placeholder="Enter publisher's name" required type="text"/>
     </label>
 
-    <!--image-->
+    <!-- Image -->
     <label class="form-control w-full max-w-xs mt-4">
       <div class="label">
         <span class="label-text">Choose Book Cover</span>
       </div>
-      <input (change)="onFileSelect($event)" class="file-input file-input-bordered w-full max-w-xs"
-             name="image" type="file"
-             value="{{selectedFile}}"/>
-
+      <input (change)="onFileSelect($event)" class="file-input file-input-bordered w-full max-w-xs" name="image"
+             type="file" value="{{selectedFile}}"/>
     </label>
 
     <!-- Language -->
@@ -91,8 +87,15 @@
     </label>
 
     <!-- Submit Button -->
-    <button class="btn btn-success mt-4 max-w-xs" type="submit">{{ isEditMode ? 'Update' : 'Submit' }}</button>
-
-
+    <div class="flex justify-between mt-12 gap-4 max-w-xs w-full">
+      <button (click)="onSubmitClick(bookForm)" *ngIf="!isEditMode" class="btn btn-success w-full max-w-xs"
+              type="button">
+        Submit
+      </button>
+      <ng-container *ngIf="isEditMode">
+        <button (click)="onUpdateClick(bookForm)" class="btn btn-warning w-1/2 max-w-xs" type="button">Update</button>
+        <button (click)="onDeleteClick(bookForm)" class="btn btn-error w-1/2 max-w-xs" type="button">Delete</button>
+      </ng-container>
+    </div>
   </form>
 </div>
