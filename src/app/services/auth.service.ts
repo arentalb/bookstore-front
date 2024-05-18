@@ -22,4 +22,13 @@ export class AuthService {
   isAuthenticated(): boolean {
     return localStorage.getItem('userInfo') !== null;
   }
+
+  isAdmin(): boolean {
+    const userInfoString = localStorage.getItem('userInfo');
+    if (userInfoString) {
+      const user = JSON.parse(userInfoString);
+      return user.isAdmin === true;
+    }
+    return false;
+  }
 }
