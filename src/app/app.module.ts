@@ -21,6 +21,7 @@ import { StudentFormComponent } from './components/admin/student/student-form/st
 import { StudentListComponent } from './components/admin/student/student-list/student-list.component';
 import { BooksComponent } from './components/user/books/books.component';
 import { BookDetailComponent } from './components/user/book-detail/book-detail.component';
+import { SplitDescriptionPipe } from './pipes/split-description.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BookDetailComponent } from './components/user/book-detail/book-detail.c
     StudentListComponent,
     BooksComponent,
     BookDetailComponent,
+    SplitDescriptionPipe,
   ],
   imports: [
     BrowserModule,

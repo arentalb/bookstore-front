@@ -37,7 +37,9 @@
           <p>Language: <span class="text-gray-600">{{ book.language }}</span></p>
           <p>Category: <span class="text-gray-600 ">{{ book.category }}</span></p>
           <h2 class="text-2xl font-semibold text-gray-700 mt-4 mb-2">Description</h2>
-          <p class="text-gray-600 text-base">{{ book.description }}</p>
+          <div *ngFor="let section of book.description | splitDescription">
+            <p class="text-gray-600 text-base">{{ section }}</p>
+          </div>
         </div>
         <button [disabled]="!isAvailable" class="btn btn-neutral btn-wide">
           Reserve
