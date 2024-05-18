@@ -8,7 +8,8 @@ import { HomeComponent } from './components/user/home/home.component';
 import { BookFormComponent } from './components/admin/books/book-form/book-form.component';
 import { BookListComponent } from './components/admin/books/book-list/book-list.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
-import { StudentsComponent } from './components/admin/students/students.component';
+import { StudentListComponent } from './components/admin/student/student-list/student-list.component';
+import { StudentFormComponent } from './components/admin/student/student-form/student-form.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -28,7 +29,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'students', component: StudentsComponent },
+      { path: 'students', component: StudentListComponent },
+      { path: 'student/new', component: StudentFormComponent },
       { path: 'books', component: BookListComponent },
       { path: 'book/new', component: BookFormComponent },
       { path: 'book/edit/:id', component: BookFormComponent },

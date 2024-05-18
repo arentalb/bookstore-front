@@ -1,0 +1,42 @@
+<div class="w-full p-4">
+  <h1 class="text-3xl font-bold">Register New User</h1>
+  <form #bookForm="ngForm" class="grid grid-cols-3">
+
+    <!-- Username -->
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Username</span>
+      </div>
+      <input [(ngModel)]="student.username" class="input input-bordered w-full max-w-xs" name="username"
+             placeholder="Enter Username" required type="text"/>
+    </label>
+
+    <!-- Email -->
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Email</span>
+      </div>
+      <input [(ngModel)]="student.email" class="input input-bordered w-full max-w-xs" name="email"
+             placeholder="Enter Email address" required type="text"/>
+    </label>
+
+    <!-- Password -->
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Password</span>
+      </div>
+      <input [(ngModel)]="student.password" class="input input-bordered w-full max-w-xs" name="password"
+             placeholder="Enter User password" required type="password"/>
+    </label>
+
+
+    <!-- Submit Button -->
+    <div class="flex justify-between mt-12 gap-4 max-w-xs w-full">
+      <button (click)="onSubmitClick(bookForm)" class="btn btn-success w-full max-w-xs"
+              type="button">
+        Register
+      </button>
+
+    </div>
+  </form>
+</div>

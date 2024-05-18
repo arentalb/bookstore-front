@@ -17,8 +17,9 @@ import { HomeComponent } from './components/user/home/home.component';
 import { BookListComponent } from './components/admin/books/book-list/book-list.component';
 import { BookFormComponent } from './components/admin/books/book-form/book-form.component';
 import { AuthInterceptor } from './interceptures/auth.interceptor';
-import { StudentsComponent } from './components/admin/students/students.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { StudentFormComponent } from './components/admin/student/student-form/student-form.component';
+import { StudentListComponent } from './components/admin/student/student-list/student-list.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
     HomeComponent,
     BookListComponent,
     BookFormComponent,
-    StudentsComponent,
     DashboardComponent,
+    StudentFormComponent,
+    StudentListComponent,
   ],
   imports: [
     BrowserModule,
