@@ -29,9 +29,9 @@ export class HomeComponent implements OnInit {
 
   navigateToDetail() {
     if (this.authService.isAuthenticated()) {
-      this.router.navigate([`books`]);
+      this.router.navigate([`/login`]);
     } else {
-      this.router.navigate([`login`]);
+      this.router.navigate([`/books`]);
     }
   }
 

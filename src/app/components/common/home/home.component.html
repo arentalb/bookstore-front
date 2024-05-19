@@ -48,7 +48,9 @@
         </div>
 
         <ng-container *ngIf="!isLoading">
-          <div *ngIf="filteredBooks.length > 0; else noBooksMatched" class="grid grid-cols-3 gap-4">
+          <div
+            (click)="navigateToDetail()"
+            *ngIf="filteredBooks.length > 0; else noBooksMatched" class="grid grid-cols-3 gap-4">
             <div
               *ngFor="let book of filteredBooks"
               class="bg-white p-4 mt-4 rounded shadow cursor-pointer flex flex-col justify-center items-center hover:bg-gray-100 transition duration-300"
