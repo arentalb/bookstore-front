@@ -16,12 +16,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { BookListComponent } from './components/admin/books/book-list/book-list.component';
 import { BookFormComponent } from './components/admin/books/book-form/book-form.component';
 import { AuthInterceptor } from './interceptures/auth.interceptor';
-import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { StudentFormComponent } from './components/admin/student/student-form/student-form.component';
 import { StudentListComponent } from './components/admin/student/student-list/student-list.component';
 import { BooksComponent } from './components/user/books/books.component';
 import { BookDetailComponent } from './components/user/book-detail/book-detail.component';
 import { SplitDescriptionPipe } from './pipes/split-description.pipe';
+import { RequestListComponent } from './components/admin/request/request-list/request-list.component';
+import { ReservationListComponent } from './components/admin/request/reservation-list/reservation-list.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +33,13 @@ import { SplitDescriptionPipe } from './pipes/split-description.pipe';
     FooterComponent,
     BookListComponent,
     BookFormComponent,
-    DashboardComponent,
     StudentFormComponent,
     StudentListComponent,
     BooksComponent,
     BookDetailComponent,
     SplitDescriptionPipe,
+    RequestListComponent,
+    ReservationListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 ">
+<div class="navbar bg-base-100 z-20">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl">BookStore</a>
   </div>
@@ -6,12 +6,13 @@
     <ul class="menu menu-horizontal px-1">
       <li *ngIf="!isAdmin"><a routerLink="/books">Books</a></li>
       <li *ngIf="isAdmin">
-        <details>
+        <details class="z-30">
           <summary>
             Admin
           </summary>
           <ul class="p-2 bg-base-100 rounded-t-none">
-            <li><a routerLink="/admin/dashboard">Dashboard</a></li>
+            <li><a routerLink="/admin/requests">Requests</a></li>
+            <li><a routerLink="/admin/reservations">Reservations</a></li>
             <li><a routerLink="/admin/books">Books</a></li>
             <li><a routerLink="/admin/students">Students</a></li>
           </ul>

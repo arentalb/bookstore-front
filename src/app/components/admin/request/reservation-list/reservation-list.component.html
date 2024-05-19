@@ -1,0 +1,43 @@
+<div class="w-full p-4 -z-20">
+  <div class="flex justify-between items-center">
+    <h1 class="text-3xl font-bold">All Reserved Books</h1>
+  </div>
+  <div *ngIf="isLoading" class="flex justify-center items-center">
+    <span *ngIf="isLoading" class="loading loading-dots loading-lg"></span>
+  </div>
+  <div class="w-full">
+    <div class="overflow-x-auto">
+      <table class="table">
+        <!-- head -->
+        <thead>
+        <tr>
+          <th></th>
+          <th>Reserved Book</th>
+          <th>Reserved By</th>
+          <th>Reserved At</th>
+          <th>Have time till</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- rows -->
+        <tr *ngFor="let request of requests; let i = index">
+          <th>{{ i + 1 }}</th>
+          <td>{{ request.book.title }}</td>
+          <td>{{ request.user.username }}</td>
+          <td>{{ request.updatedAt | date:'short' }}</td>
+          <td>{{ request.reservedUntil | date:'short' }}</td>
+          <td>
+            <ng-container *ngIf="isExpired(request.reservedUntil); else validBlock">
+              <span class="text-red-500">Expired</span>
+            </ng-container>
+            <ng-template #validBlock>
+              <span class="text-green-500">Valid for {{ daysUntilExpiration(request.reservedUntil) }} days</span>
+            </ng-template>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="w-full p-4 -z-20">
+
+  <div class="flex justify-between items-center">
+    <h1 class="text-3xl font-bold">All Requests</h1>
+  </div>
+  <div *ngIf="isLoading" class="flex justify-center items-center">
+    <span *ngIf="isLoading" class="loading loading-dots loading-lg"></span>
+  </div>
+  <div class="w-full">
+
+    <div class="overflow-x-auto">
+      <table class="table">
+        <!-- head -->
+        <thead>
+        <tr>
+          <th></th>
+          <th>Requested Book</th>
+          <th>Requested By</th>
+          <th>Requested At</th>
+          <th>Reserve days</th>
+          <th>Request Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- rows -->
+        <tr *ngFor="let request of requests; let i = index">
+          <th>{{ i + 1 }}</th>
+          <td>{{ request.book.title }}</td>
+          <td>{{ request.user.username }}</td>
+          <td>{{ request.createdAt | date:'short' }}</td>
+          <td>
+            <input [(ngModel)]="request.numberOfDay"
+                   [disabled]="request.status === 'Approved'"
+                   class="input input-bordered input-xs max-w-xs w-16"
+                   type="number"/>
+          </td>
+          <td class="flex gap-2">
+            <select [(ngModel)]="request.status" class="select select-bordered select-xs w-full max-w-xs">
+              <option *ngFor="let status of statuses" [value]="status">
+                {{ status }}
+              </option>
+            </select>
+            <button (click)="updateRequest(request)"
+                    class="btn btn-xs btn-success">
+              Update
+            </button>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

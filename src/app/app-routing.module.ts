@@ -6,11 +6,12 @@ import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
 import { BookFormComponent } from './components/admin/books/book-form/book-form.component';
 import { BookListComponent } from './components/admin/books/book-list/book-list.component';
-import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { StudentListComponent } from './components/admin/student/student-list/student-list.component';
 import { StudentFormComponent } from './components/admin/student/student-form/student-form.component';
 import { BooksComponent } from './components/user/books/books.component';
 import { BookDetailComponent } from './components/user/book-detail/book-detail.component';
+import { RequestListComponent } from './components/admin/request/request-list/request-list.component';
+import { ReservationListComponent } from './components/admin/request/reservation-list/reservation-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,8 +30,9 @@ const routes: Routes = [
     component: LayoutComponent,
     canActivate: [AdminGuard],
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
+      { path: '', redirectTo: 'books', pathMatch: 'full' },
+      { path: 'requests', component: RequestListComponent },
+      { path: 'reservations', component: ReservationListComponent },
       { path: 'students', component: StudentListComponent },
       { path: 'student/new', component: StudentFormComponent },
       { path: 'books', component: BookListComponent },
