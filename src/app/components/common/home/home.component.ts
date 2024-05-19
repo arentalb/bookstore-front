@@ -3,6 +3,7 @@ import { BookService } from '../../../services/book.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { categories, languages } from '../../../utils/constants'; // Adjust the path as needed
 
 @Component({
   selector: 'app-home',
@@ -16,26 +17,8 @@ export class HomeComponent implements OnInit {
   selectedLanguage: string = '';
   selectedCategory: string = '';
 
-  languages: string[] = [
-    'English',
-    'Spanish',
-    'French',
-    'German',
-    'Chinese',
-    'Japanese',
-    'Russian',
-    'Other',
-  ];
-
-  categories: string[] = [
-    'Fantasy',
-    'Science Fiction',
-    'Mystery',
-    'Thriller',
-    'Romance',
-    'Non-Fiction',
-    'Other',
-  ];
+  languages = languages;
+  categories = categories;
 
   constructor(
     private bookService: BookService,

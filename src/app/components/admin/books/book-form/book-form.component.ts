@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { BookService } from '../../../../services/book.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
+import { categories, languages } from '../../../../utils/constants'; // Adjust the path as needed
 
 @Component({
   selector: 'app-book-form',
@@ -21,6 +22,9 @@ export class BookFormComponent implements OnInit {
   };
 
   selectedFile: File | null = null;
+
+  languages = languages;
+  categories = categories;
 
   constructor(
     private bookService: BookService,

@@ -44,17 +44,9 @@
       </div>
       <select [(ngModel)]="book.language" class="select select-bordered" name="language" required>
         <option disabled selected>Select Language</option>
-        <option>English</option>
-        <option>Spanish</option>
-        <option>French</option>
-        <option>German</option>
-        <option>Chinese</option>
-        <option>Japanese</option>
-        <option>Arabic</option>
-        <option>Russian</option>
-        <option>Portuguese</option>
-        <option>Hindi</option>
+        <option *ngFor="let language of languages">{{ language }}</option>
       </select>
+
     </label>
 
     <!-- Category -->
@@ -64,16 +56,7 @@
       </div>
       <select [(ngModel)]="book.category" class="select select-bordered" name="category" required>
         <option disabled selected>Select Category</option>
-        <option>Fantasy</option>
-        <option>Science Fiction</option>
-        <option>Mystery</option>
-        <option>Romance</option>
-        <option>Non-Fiction</option>
-        <option>Historical</option>
-        <option>Thriller</option>
-        <option>Biography</option>
-        <option>Children's</option>
-        <option>Young Adult</option>
+        <option *ngFor="let category of categories">{{ category }}</option>
       </select>
     </label>
 

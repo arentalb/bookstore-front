@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../../services/book.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { categories, languages } from '../../../utils/constants'; // Adjust the path as needed
 
 @Component({
   selector: 'app-books',
@@ -15,26 +16,8 @@ export class BooksComponent implements OnInit {
   selectedLanguage: string = '';
   selectedCategory: string = '';
 
-  languages: string[] = [
-    'English',
-    'Spanish',
-    'French',
-    'German',
-    'Chinese',
-    'Japanese',
-    'Russian',
-    'Other',
-  ];
-
-  categories: string[] = [
-    'Fantasy',
-    'Science Fiction',
-    'Mystery',
-    'Thriller',
-    'Romance',
-    'Non-Fiction',
-    'Other',
-  ];
+  languages = languages;
+  categories = categories;
 
   constructor(
     private bookService: BookService,

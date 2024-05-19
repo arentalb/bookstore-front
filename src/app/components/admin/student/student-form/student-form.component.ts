@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from '../../../../services/student.service';
+import { categories, who } from '../../../../utils/constants'; // Adjust the path as needed
 
 @Component({
   selector: 'app-student-form',
@@ -14,6 +15,8 @@ export class StudentFormComponent {
     email: '',
     password: '',
   };
+  who = who;
+  protected readonly categories = categories;
 
   constructor(
     private studentService: StudentService,

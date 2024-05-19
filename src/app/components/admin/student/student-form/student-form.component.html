@@ -35,9 +35,8 @@
       </div>
       <select class="select select-bordered">
         <option disabled selected>Student</option>
-        <option>Student</option>
-        <option>Teacher</option>
-        <option>Quest</option>
+        <option *ngFor="let type of who">{{ type }}</option>
+
       </select>
 
     </label>
