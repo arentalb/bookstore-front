@@ -17,6 +17,7 @@
           <th></th>
           <th>Username</th>
           <th>Email</th>
+          <th>Who</th>
           <th>IsAdmin</th>
         </tr>
         </thead>
@@ -26,10 +27,12 @@
           <th>{{ i + 1 }}</th>
           <td>{{ student.username }}</td>
           <td>{{ student.email }}</td>
+          <td>{{ student.who }}</td>
           <td>
             <span *ngIf="student.isAdmin; else cross">✔️</span>
             <ng-template #cross>❌</ng-template>
           </td>
+
         </tr>
         </tbody>
       </table>
