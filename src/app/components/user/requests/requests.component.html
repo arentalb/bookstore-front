@@ -1,0 +1,55 @@
+<div class="w-full p-4 -z-20">
+
+  <div class="flex justify-between items-center">
+    <h1 class="text-3xl font-bold">All Requests</h1>
+  </div>
+  <div *ngIf="isLoading" class="flex justify-center items-center">
+    <span *ngIf="isLoading" class="loading loading-dots loading-lg"></span>
+  </div>
+  <div class="w-full">
+
+    <div class="overflow-x-auto">
+      <table class="table">
+        <!-- head -->
+        <thead>
+        <tr>
+          <th></th>
+          <th>Requested Book</th>
+          <th>Requested At</th>
+          <th>Request Status</th>
+          <th>Available days</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- rows -->
+        <tr *ngFor="let request of requests; let i = index">
+          <th>{{ i + 1 }}</th>
+          <td>{{ request?.book?.title }}</td>
+          <td>{{ request.createdAt | date:'short' }}</td>
+          <td>{{ request.status }}</td>
+          <td>
+            <ng-container *ngIf="request.status === 'Pending'; else statusCheck">
+              <span class="text-yellow-500">----</span>
+            </ng-container>
+            <ng-template #statusCheck>
+              <ng-container *ngIf="request.status === 'Rejected'; else expirationCheck">
+                <span class="text-red-500">Sorry</span>
+              </ng-container>
+              <ng-template #expirationCheck>
+                <ng-container *ngIf="isExpired(request.reservedUntil, request.status); else validBlock">
+                  <span class="text-red-500">You have to return it</span>
+                </ng-container>
+                <ng-template #validBlock>
+                  <span class="text-green-500">Valid for {{ daysUntilExpiration(request.reservedUntil) }} days</span>
+                </ng-template>
+              </ng-template>
+            </ng-template>
+          </td>
+
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

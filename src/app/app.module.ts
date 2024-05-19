@@ -23,6 +23,7 @@ import { BookDetailComponent } from './components/user/book-detail/book-detail.c
 import { SplitDescriptionPipe } from './pipes/split-description.pipe';
 import { RequestListComponent } from './components/admin/request/request-list/request-list.component';
 import { ReservationListComponent } from './components/admin/request/reservation-list/reservation-list.component';
+import { RequestsComponent } from './components/user/requests/requests.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ReservationListComponent } from './components/admin/request/reservation
     SplitDescriptionPipe,
     RequestListComponent,
     ReservationListComponent,
+    RequestsComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { BooksComponent } from './components/user/books/books.component';
 import { BookDetailComponent } from './components/user/book-detail/book-detail.component';
 import { RequestListComponent } from './components/admin/request/request-list/request-list.component';
 import { ReservationListComponent } from './components/admin/request/reservation-list/reservation-list.component';
+import { RequestsComponent } from './components/user/requests/requests.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'books', pathMatch: 'full' },
+      { path: 'requests', component: RequestsComponent },
       { path: 'books', component: BooksComponent },
       { path: 'book/:id', component: BookDetailComponent },
     ],

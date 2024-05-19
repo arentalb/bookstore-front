@@ -5,6 +5,7 @@
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
       <li *ngIf="!isAdmin"><a routerLink="/books">Books</a></li>
+      <li *ngIf="!isAdmin"><a routerLink="/requests">Requests</a></li>
       <li *ngIf="isAdmin">
         <details class="z-30">
           <summary>
