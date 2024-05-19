@@ -24,7 +24,7 @@ export interface TRequest {
 export class RequestListComponent implements OnInit {
   requests: TRequest[] = [];
   isLoading: boolean = true;
-  statuses = ['Pending', 'Approved'];
+  statuses = ['Pending', 'Approved', 'Rejected'];
 
   constructor(
     private requestService: RequestService,

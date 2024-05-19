@@ -28,4 +28,14 @@ export class RequestService {
   getAllReservations(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/reservations`);
   }
+
+  createNewRequest(id: string): Observable<any[]> {
+    return this.http.post<any[]>(`${this.apiUrl}/new`, {
+      bookId: id,
+    });
+  }
+
+  getUserRequests(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}`);
+  }
 }

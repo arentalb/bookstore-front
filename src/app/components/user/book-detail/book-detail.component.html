@@ -1,11 +1,32 @@
 <div class="container mx-auto p-4 rounded-lg shadow-md relative overflow-hidden">
+  <!--  <div-->
+  <!--    [ngClass]="{-->
+  <!--    'bg-red-500': !isAvailable || requestStatus === 'Rejected',-->
+  <!--    'bg-green-500': isAvailable && (!requestStatus || requestStatus === 'Approved'),-->
+  <!--    'bg-yellow-500': requestStatus === 'Pending'-->
+  <!--  }"-->
+  <!--    class="absolute top-24 -right-8 font-bold min-w-60 shadow-md text-white py-1 px-3 transform translate-y-10 rotate-45 origin-top-right flex justify-center">-->
+  <!--    <ng-container *ngIf="requestStatus; else availability">-->
+  <!--      {{ requestStatus }}-->
+  <!--    </ng-container>-->
+  <!--    <ng-template #availability>-->
+  <!--      {{ isAvailable ? 'Available' : 'Not Available' }}-->
+  <!--    </ng-template>-->
+  <!--  </div>-->
   <div
     [ngClass]="{
-    'bg-red-500': !isAvailable,
-    'bg-green-500': isAvailable
+    'bg-red-500': requestStatus === 'Rejected',
+    'bg-green-500': requestStatus === 'Approved',
+    'bg-yellow-500': requestStatus === 'Pending',
+    'bg-gray-500': !requestStatus
   }"
     class="absolute top-24 -right-8 font-bold min-w-60 shadow-md text-white py-1 px-3 transform translate-y-10 rotate-45 origin-top-right flex justify-center">
-    {{ isAvailable ? 'Available' : 'Not Available' }}
+    <ng-container *ngIf="requestStatus; else noRequest">
+      {{ requestStatus }}
+    </ng-container>
+    <ng-template #noRequest>
+      No Request
+    </ng-template>
   </div>
 
   <ng-container *ngIf="isLoading; else content">
@@ -29,7 +50,7 @@
         </ng-template>
       </div>
 
-      <div class="col-span-2 p-4 text-lg  text-gray-700">
+      <div class="col-span-2 p-4 text-lg text-gray-700">
         <div class="mb-24">
           <h1 class="title text-4xl font-bold text-gray-800 mb-8">{{ book.title }}</h1>
           <p>Author: <span class="text-gray-600">{{ book.author }}</span></p>
@@ -41,7 +62,10 @@
             <p class="text-gray-600 text-base">{{ section }}</p>
           </div>
         </div>
-        <button [disabled]="!isAvailable" class="btn btn-neutral btn-wide">
+        <!--        <button [disabled]="requestStatus === 'Pending'||requestStatus === 'Approved' ||requestStatus === 'Rejected' "-->
+        <button (click)="reserveHandler(book._id)"
+                [disabled]="requestStatus === 'Pending'||requestStatus === 'Approved'"
+                class="btn btn-neutral btn-wide">
           Reserve
         </button>
       </div>
