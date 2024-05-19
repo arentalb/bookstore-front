@@ -1,0 +1,81 @@
+<div class="flex flex-col min-h-screen">
+  <div class="relative w-full mb-8">
+    <img
+      alt="Welcome Image"
+      class="w-full h-96 object-cover"
+      src="https://source.unsplash.com/random/1600x400?books"
+    />
+    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50">
+      <h1 class="text-5xl font-bold text-white mb-4">Welcome to Our Bookstore</h1>
+      <p class="text-2xl text-white mb-6">Discover your next great read</p>
+      <button (click)="navigateToDetail()" class="btn btn-active bg-gray-100">Browse Books</button>
+
+    </div>
+  </div>
+  <div class="flex-grow">
+    <div class="max-w-[1050px] mx-auto">
+      <div class="w-full p-4">
+        <div class="mb-4 flex gap-4">
+          <input
+            (input)="onSearch()"
+            [(ngModel)]="searchQuery"
+            class="input input-bordered w-full max-w-xs"
+            placeholder="Search by title or author"
+            type="text"
+          />
+
+          <select
+            (change)="onSearch()"
+            [(ngModel)]="selectedLanguage"
+            class="select select-bordered w-full max-w-xs"
+          >
+            <option value="">All Languages</option>
+            <option *ngFor="let language of languages" [value]="language">{{ language }}</option>
+          </select>
+
+          <select
+            (change)="onSearch()"
+            [(ngModel)]="selectedCategory"
+            class="select select-bordered w-full max-w-xs"
+          >
+            <option value="">All Categories</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+          </select>
+        </div>
+
+        <div *ngIf="isLoading" class="flex justify-center items-center">
+          <span class="loading loading-dots loading-lg"></span>
+        </div>
+
+        <ng-container *ngIf="!isLoading">
+          <div *ngIf="filteredBooks.length > 0; else noBooksMatched" class="grid grid-cols-3 gap-4">
+            <div
+              *ngFor="let book of filteredBooks"
+              class="bg-white p-4 mt-4 rounded shadow cursor-pointer flex flex-col justify-center items-center hover:bg-gray-100 transition duration-300"
+            >
+              <div class="max-w-60 flex justify-center items-center mb-4">
+                <img
+                  [alt]="book?.title"
+                  [src]="book?.image"
+                  class="object-cover h-full w-full rounded"
+                />
+              </div>
+              <div class="text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ book?.title }}</h2>
+                <p class="text-md text-gray-600"><strong>By:</strong> {{ book?.author }}</p>
+              </div>
+            </div>
+          </div>
+          <ng-template #noBooksMatched>
+            <div class="text-center text-xl text-gray-500 mt-8">
+              No books matched your search criteria.
+            </div>
+          </ng-template>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="mt-auto">
+    <app-footer></app-footer>
+  </div>
+</div>

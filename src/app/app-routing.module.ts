@@ -13,17 +13,19 @@ import { BookDetailComponent } from './components/user/book-detail/book-detail.c
 import { RequestListComponent } from './components/admin/request/request-list/request-list.component';
 import { ReservationListComponent } from './components/admin/request/reservation-list/reservation-list.component';
 import { RequestsComponent } from './components/user/requests/requests.component';
+import { HomeComponent } from './components/common/home/home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
   {
     path: '',
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'books', pathMatch: 'full' },
-      { path: 'requests', component: RequestsComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'books', component: BooksComponent },
+      { path: 'requests', component: RequestsComponent },
       { path: 'book/:id', component: BookDetailComponent },
     ],
   },

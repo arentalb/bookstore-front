@@ -24,6 +24,7 @@ import { SplitDescriptionPipe } from './pipes/split-description.pipe';
 import { RequestListComponent } from './components/admin/request/request-list/request-list.component';
 import { ReservationListComponent } from './components/admin/request/reservation-list/reservation-list.component';
 import { RequestsComponent } from './components/user/requests/requests.component';
+import { HomeComponent } from './components/common/home/home.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { RequestsComponent } from './components/user/requests/requests.component
     RequestListComponent,
     ReservationListComponent,
     RequestsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

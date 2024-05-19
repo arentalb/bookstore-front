@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../../services/book.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
-  selector: 'app-books',
-  templateUrl: './books.component.html',
+  selector: 'app-home',
+  templateUrl: './home.component.html',
 })
-export class BooksComponent implements OnInit {
+export class HomeComponent implements OnInit {
   books: any[] = [];
   filteredBooks: any[] = [];
   isLoading = false;
@@ -40,10 +41,15 @@ export class BooksComponent implements OnInit {
     private bookService: BookService,
     private toaster: ToastrService,
     private router: Router,
+    private authService: AuthService,
   ) {}
 
-  navigateToDetail(id: string) {
-    this.router.navigate([`book/${id}`]);
+  navigateToDetail() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate([`books`]);
+    } else {
+      this.router.navigate([`login`]);
+    }
   }
 
   ngOnInit() {
