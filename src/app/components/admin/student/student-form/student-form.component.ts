@@ -14,6 +14,8 @@ export class StudentFormComponent {
     username: '',
     email: '',
     password: '',
+    who: '',
+    isAdmin: false,
   };
   who = who;
   protected readonly categories = categories;

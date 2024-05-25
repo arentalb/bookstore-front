@@ -29,17 +29,26 @@
              placeholder="Enter User password" required type="password"/>
     </label>
 
-    <label class="form-control w-full max-w-xs">
+    <label class="form-control w-full max-w-xs mt-4">
       <div class="label">
-        <span class="label-text">Who is he/she ?</span>
+        <span class="label-text">Who is he/she?</span>
       </div>
-      <select class="select select-bordered">
-        <option disabled selected>Student</option>
-        <option *ngFor="let type of who">{{ type }}</option>
-
+      <select [(ngModel)]="student.who" class="select select-bordered" name="who" required>
+        <option disabled selected value="">Select an option</option>
+        <option *ngFor="let type of who" [value]="type">{{ type }}</option>
       </select>
-
     </label>
+
+    <!-- Is Admin -->
+    <div class="form-control mt-12">
+      <label class="label cursor-pointer">
+        <div class="label cursor-pointer">
+          <span class="label-text">Is Admin</span>
+          <input [(ngModel)]="student.isAdmin" class="checkbox checkbox-primary ml-2" name="isAdmin" type="checkbox"/>
+        </div>
+      </label>
+    </div>
+
 
     <!-- Submit Button -->
 

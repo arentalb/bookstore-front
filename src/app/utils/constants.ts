@@ -19,4 +19,4 @@ export const categories: string[] = [
   'Other',
 ];
 
-export const who: string[] = ['Student', 'Teacher', 'Quest'];
+export const who: string[] = ['student', 'teacher', 'guest', 'employee'];
