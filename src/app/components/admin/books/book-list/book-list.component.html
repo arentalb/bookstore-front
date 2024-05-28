@@ -3,16 +3,43 @@
     <h1 class="text-3xl font-bold">All Books</h1>
     <a class="btn btn-success" routerLink="/admin/book/new">Create Book</a>
   </div>
+
+  <div class="my-4  flex gap-4">
+    <input
+      (input)="onSearch()"
+      [(ngModel)]="searchQuery"
+      class="input input-bordered w-full max-w-xs"
+      placeholder="Search by title or author"
+      type="text"
+    />
+
+    <select
+      (change)="onSearch()"
+      [(ngModel)]="selectedLanguage"
+      class="select select-bordered w-full max-w-xs"
+    >
+      <option value="">All Languages</option>
+      <option *ngFor="let language of languages" [value]="language">{{ language }}</option>
+    </select>
+
+    <select
+      (change)="onSearch()"
+      [(ngModel)]="selectedCategory"
+      class="select select-bordered w-full max-w-xs"
+    >
+      <option value="">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+
   <div *ngIf="isLoading" class="flex justify-center items-center">
     <span *ngIf="isLoading" class="loading loading-dots loading-lg"></span>
-
   </div>
+
   <div class="grid grid-cols-3 gap-4">
-
-
     <div
       (click)="navigateToEdit(book?._id)"
-      *ngFor="let book of books"
+      *ngFor="let book of filteredBooks"
       class="bg-white p-4 mt-4 rounded shadow cursor-pointer flex flex-col justify-center items-center hover:bg-gray-100 transition duration-300"
     >
       <div class="max-w-60 flex justify-center items-center mb-4">
@@ -27,7 +54,9 @@
         <p class="text-md text-gray-600"><strong>By:</strong> {{ book?.author }}</p>
       </div>
     </div>
-
   </div>
 
+  <div *ngIf="!isLoading && filteredBooks.length === 0" class="text-center text-xl text-gray-500 mt-8">
+    No books matched your search criteria.
+  </div>
 </div>
