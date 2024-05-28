@@ -36,12 +36,15 @@
     <span *ngIf="isLoading" class="loading loading-dots loading-lg"></span>
   </div>
 
-  <div class="grid grid-cols-3 gap-4">
+  <div class="grid grid-cols-3 gap-4 ">
     <div
       (click)="navigateToEdit(book?._id)"
       *ngFor="let book of filteredBooks"
-      class="bg-white p-4 mt-4 rounded shadow cursor-pointer flex flex-col justify-center items-center hover:bg-gray-100 transition duration-300"
+      class="bg-white p-4 mt-4 relative rounded shadow cursor-pointer flex flex-col justify-center items-center hover:bg-gray-100 transition duration-300"
     >
+      <div
+        class="w-8 h-8 flex justify-center items-center shadow-md absolute top-5 right-5 rounded-full border">{{ book?.psc }}</div>
+
       <div class="max-w-60 flex justify-center items-center mb-4">
         <img
           [alt]="book?.title"

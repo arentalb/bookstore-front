@@ -19,6 +19,7 @@ export class BookFormComponent implements OnInit {
     language: '',
     category: '',
     description: '',
+    psc: 0,
   };
 
   selectedFile: File | null = null;
