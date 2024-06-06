@@ -56,3 +56,4 @@ ng serve
 
 Final Result
 Here are some images of the final result:
+![Home page](https://github.com/arentalb/bookstore-front/assets/70669302/d6447e00-5006-4618-a2a7-a1f43c5adf28)
