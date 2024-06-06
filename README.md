@@ -56,4 +56,44 @@ ng serve
 
 Final Result
 Here are some images of the final result:
-![Home page](https://github.com/arentalb/bookstore-front/assets/70669302/d6447e00-5006-4618-a2a7-a1f43c5adf28)
+
+
+![bookstore (12)](https://github.com/arentalb/bookstore-front/assets/70669302/b9f10d84-4106-4445-becb-68c6b9837423)
+
+![bookstore (11)](https://github.com/arentalb/bookstore-front/assets/70669302/85b200e9-82b5-44d7-9069-8c93c3b4a961)
+
+![bookstore (10)](https://github.com/arentalb/bookstore-front/assets/70669302/02b60070-3798-48c1-bf31-d90132adb94c)
+
+![bookstore (9)](https://github.com/arentalb/bookstore-front/assets/70669302/89e51c03-98ec-4d86-955c-9bcaa1c600e9)
+
+![bookstore (8)](https://github.com/arentalb/bookstore-front/assets/70669302/96f2b189-a24f-4024-bac8-7d16e077dad0)
+
+![bookstore (7)](https://github.com/arentalb/bookstore-front/assets/70669302/377c83ff-6bb5-4335-9811-93bb8b9308f0)
+
+![bookstore (6)](https://github.com/arentalb/bookstore-front/assets/70669302/14375ec3-2eed-4c90-9c7c-e6525e977128)
+
+![bookstore (5)](https://github.com/arentalb/bookstore-front/assets/70669302/cf03a034-2a38-42a3-8425-80cb597bdc21)
+
+![bookstore (4)](https://github.com/arentalb/bookstore-front/assets/70669302/9cbf5937-ec8b-4901-a209-7f1d3b5ad551)
+
+![bookstore (3)](https://github.com/arentalb/bookstore-front/assets/70669302/fbbf7a36-8729-487f-afeb-8ae67deda3c0)
+
+![bookstore (2)](https://github.com/arentalb/bookstore-front/assets/70669302/b2a4f7dc-a8b9-42bf-8e7b-739c0318d3a8)
+
+![bookstore (1)](https://github.com/arentalb/bookstore-front/assets/70669302/3db62580-fc43-4ad7-9b98-4a0710a137ec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
