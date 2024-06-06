@@ -6,13 +6,11 @@ Tailwind CSS, and DaisyUI.
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Project Structure](#project-structure)
 - [Setup Instructions](#setup-instructions)
 - [Development](#development)
 - [Running the Project](#running-the-project)
 - [Final Result](#final-result)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Introduction
 
