@@ -1,4 +1,5 @@
 # University Bookstore Web Project - Frontend
+Also you can checkout the backend repository for this frontend at https://github.com/arentalb/bookstore-back
 
 Welcome to the frontend repository for the University Bookstore Web Project! This project is developed using Angular,
 Tailwind CSS, and DaisyUI.
